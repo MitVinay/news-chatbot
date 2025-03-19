@@ -7,6 +7,8 @@ name = "pypi"
 cookiecutter-data-science = "*"
 feedparser = "*"
 pandas = "*"
+aiohttp = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 ipykernel = "*"
