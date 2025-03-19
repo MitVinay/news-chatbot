@@ -60,7 +60,6 @@ if __name__ == "__main__":
 
     load_dotenv()
     access_key = os.getenv('ACCESS_KEY')
-    print(access_key)
 
     # Initialize the NewsFetcher class with the access key
     fetcher = NewsFetcher(access_key)
