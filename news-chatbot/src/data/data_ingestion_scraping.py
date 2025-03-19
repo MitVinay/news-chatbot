@@ -103,7 +103,7 @@ class BaseNewsScraper:
 
         # Add the author and published date as new columns to the DataFrame
         df['Author'] = authors
-        df['Published Date'] = publish_dates
+        df['Published_Date'] = publish_dates
         return df
 
 
