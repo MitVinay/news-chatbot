@@ -37,9 +37,7 @@ class RSSFeedParser:
         print(f"Saved {category} data to CSV.")
 
     def process_feeds(self):
-        """
-        Loops through the list of RSS URLs, parses them, converts to DataFrame, and saves as CSV.
-        """
+
         for rss_url in self.rss_urls:
             print(f"Processing {rss_url}...")
 
