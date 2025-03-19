@@ -13,9 +13,13 @@ python-dotenv = "*"
 chromadb = "*"
 sentence-transformers = "*"
 ipywidgets = "*"
+numpy = "*"
+scikit-learn = "*"
+plotly = "*"
 
 [dev-packages]
 ipykernel = "*"
+nbformat = "*"
 
 [requires]
 python_version = "3.12"
