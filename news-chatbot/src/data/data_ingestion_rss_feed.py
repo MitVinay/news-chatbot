@@ -1,6 +1,8 @@
 import feedparser
 import pandas as pd
-from typing import List, Dict, Optional
+import ssl
+import os
+import certifi
 
 
 class RSSFeedParser:
@@ -9,12 +11,16 @@ class RSSFeedParser:
         self.rss_urls = rss_urls
         self.output_folder = output_folder
 
-    def parse_rss_feed(self, rss_url: str) -> Optional[List[Dict]]:
+    def parse_rss_feed(self, rss_url: str):
 
         try:
             # Parse the RSS feed
             feed = feedparser.parse(rss_url)
             category = rss_url.split("/")[-1]
+            os.environ['SSL_CERT_FILE'] = certifi.where()
+
+            if hasattr(ssl, '_create_unverified_context'):
+                ssl._create_default_https_context = ssl._create_unverified_context
 
             # Return a list of articles as dictionaries
             return [{

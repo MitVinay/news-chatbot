@@ -16,6 +16,8 @@ ipywidgets = "*"
 numpy = "*"
 scikit-learn = "*"
 plotly = "*"
+certifi = "*"
+textacy = "*"
 
 [dev-packages]
 ipykernel = "*"
