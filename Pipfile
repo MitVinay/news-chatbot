@@ -18,6 +18,9 @@ scikit-learn = "*"
 plotly = "*"
 certifi = "*"
 textacy = "*"
+mlflow = "*"
+dagshub = "*"
+seaborn = "*"
 
 [dev-packages]
 ipykernel = "*"
