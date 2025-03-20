@@ -3,39 +3,31 @@ from src.highlights import Highlights
 
 app = Flask(__name__)
 
-# Sample news data
-news_items = [
-    {
-        'title': 'Market Trends 2024',
-        'category': 'business',
-        'author': 'John Doe',
-        'source': 'Financial Times',
-        'frequency': 'High',
-        'published': '2024-03-20'
-    },
-    {
-        'title': 'AI Innovations',
-        'category': 'tech',
-        'author': 'Jane Smith',
-        'source': 'TechCrunch',
-        'frequency': 'Trending',
-        'published': '2024-03-19'
-    }
-]
+checker = Highlights()
+news_highlight = checker.get_highlights()
+
+print(".....Fetching the highlighted news")
 
 
-@app.route('/')
+@app.route('/home')
 def index():
-    category = request.args.get('category', 'all')
+    category = request.args.getlist('category')
+    print(category)
+    all_data = []
+    for cat, data in checker.category_documents.items():
+        if cat in category:
+            all_data.extend(data)
+    # If no categories are selected, use 'all' as the default
+    if not category:
+        category = ['all']
 
     if category == 'all':
-        filtered_news = news_items
-    else:
-        filtered_news = [item for item in news_items
-                         if item['category'] == category]
+        all_data = [item for sublist in checker.category_documents.values()
+                    for item in sublist]
 
     return render_template('index.html',
-                           news=filtered_news,
+                           news=all_data,
+                           highlighted_news=news_highlight,
                            current_category=category)
 
 

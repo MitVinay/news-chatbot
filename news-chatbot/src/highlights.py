@@ -17,6 +17,20 @@ class Highlights:
                            for metadata in self.all_items['metadatas']]
         self.final_frequency = {}
 
+        # Create a dictionary where the key is the category and the value is a list of dictionaries
+        self.category_documents = {}
+
+        for metadata, document in zip(self.all_items['metadatas'], self.all_items['documents']):
+            category = metadata['category']
+            # If the category doesn't exist in the dictionary, create a list for it
+            if category not in self.category_documents:
+                self.category_documents[category] = []
+            # Append the metadata and document as a dictionary
+            self.category_documents[category].append({
+                "metadata": metadata,
+                "document": document
+            })
+
     def find_similar_vectors(self):
         for item_id, embedding in zip(self.all_items["ids"], self.all_items["embeddings"]):
             results = self.collection.query(
@@ -51,6 +65,8 @@ class Highlights:
         }
 
     def get_highlights(self):
+        self.find_similar_vectors()
+        self.filter_frequency()
         output = []
         for count, vector_idss in self.filtered_frequency.items():
             for vector_ids in vector_idss:
@@ -73,8 +89,6 @@ class Highlights:
 # Usage example (in your Flask app, you would import this class)
 if __name__ == "__main__":
     checker = Highlights()
-    checker.find_similar_vectors()
-    checker.filter_frequency(min_frequency=5)
     result = checker.get_highlights()
     print(result)
     for item in result:

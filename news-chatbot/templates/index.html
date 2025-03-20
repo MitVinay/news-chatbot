@@ -22,7 +22,7 @@
             background: #1a1a1a;
             color: white;
             padding: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .container {
@@ -30,6 +30,17 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        .image-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.highlights-image {
+    max-width: 600px;
+    height: auto;
+}
+
 
         .filters {
             margin-bottom: 2rem;
@@ -49,6 +60,39 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
+        .highlights-heading {
+            padding: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+
+.text-content h2 {
+    margin: 5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-content .small-summary {
+    margin: 5rem;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.image-content {
+    flex: 1;
+    text-align: right;
+}
+
+.image-content img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
 
         .news-card {
             background: white;
@@ -56,6 +100,7 @@
             padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s;
+            word-wrap: break-word;
         }
 
         .news-card:hover {
@@ -88,6 +133,34 @@
             border-radius: 4px;
             font-size: 0.8rem;
         }
+        .news-link {
+    color: #1a73e8; /* Blue color */
+    text-decoration: none; /* No underline */
+}
+.filters.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;  /* Centers horizontally */
+    padding: 20px;
+    text-align: left;  /* Align text to the left within each checkbox */
+}
+
+.filters {
+    display: flex;
+    justify-content: center;  /* Horizontally center the filter */
+    align-items: center;      /* Vertically center the filter */
+    flex-direction: column;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
     </style>
 </head>
 <body>
@@ -95,37 +168,82 @@
         <div class="container">
             <h1>News Digest Pro</h1>
             <p>Unbiased Custom Briefing</p>
+            
+        </div>
         </div>
     </header>
-
+    <section class="image-section">
+        <div class="text-content">
+            <h2>Different Tastes?<br>
+                 A Place You Can All Come Together</h2>
+            <p class="small-summary">We Believe in Togetherness – A Place Where You Can Enjoy Different News Together, Find Unbiased Variety, and Still Stay Updated and Connected While Maintaining Your Individuality.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/team.jpg') }}" alt="Team Image" class="highlights-image">
+    </section>
+    
+    <div class="highlights-heading">
+    <h2>HIGHLIGHTS</h2>    
+    </div>
     <section class="highlights-grid">
-        {% for item in news_items %}
+        {% for item in highlighted_news %}
         <div class="news-card">
-            <div class="news-category">{{ item.category }}</div>
-            <h2 class="news-title">{{ item.title }}</h2>
+            <div class="news-category">{{ item['metadata']['category'] }}</div>
+            <div class="tags">Tags: {{ item['metadata']['sub_category'] }}</div>
+            <h2 class="news-title">{{ item['document'] }}</h2>
+            <p class="summary">{{ item['metadata']['title'] }}</p>
             <div class="news-meta">
-                <div>By {{ item.author }}</div>
-                <div>Source: {{ item.source }}</div>
-                <div>Published: {{ item.published }}</div>
+                <div>By: {% if item['metadata']['author']|trim == '' %}Not Available{% else %}{{ item['metadata']['author'] }}{% endif %}</div>
+                <div>Source: <a href="{{ item['metadata']['link'] }}" target="_blank" class="news-link">{{ item['metadata']['link'] }}</a></div>
+                <div>Published: {{ item['metadata']['published_date'] }}</div>
             </div>
-            <div class="news-frequency">{{ item.frequency }}</div>
+            <div class="news-frequency"> Frequency: {{ item.frequency }}</div>
         </div>
         {% endfor %}
     </section>
+    
 
-    <main class="container">
-        <form method="GET" action="/">
-            <div class="filters">
-                <select name="category" onchange="this.form.submit()">
-                    <option value="all" {% if selected_category == 'all' %}selected{% endif %}>All Categories</option>
-                    <option value="business" {% if selected_category == 'business' %}selected{% endif %}>Business</option>
-                    <option value="technology" {% if selected_category == 'technology' %}selected{% endif %}>Technology</option>
-                    <option value="politics" {% if selected_category == 'politics' %}selected{% endif %}>Politics</option>
-                </select>
+    <div class="highlights-heading">
+        <h2>Your Daily News Digest</h2>    
+    </div>
+    <form method="GET" action="/home">
+        <div class="filters two-columns">
+            {% set categories = ['finance', 'politics', 'investigations', 'national', 'world', 'insights & analysis', 
+                                 'entertainment-news', 'business', 'entertainment', 'general', 
+                                 'technology', 'lifestyle', 'travel', 'sports'] %}
+            {% for cat in categories %}
+            <label>
+                <input type="checkbox" name="category" value="{{ cat }}" 
+                       {% if cat in selected_categories %}checked{% endif %}>
+                {{ cat | capitalize }}
+            </label>
+            {% endfor %}
+        </div>
+        <div style="text-align: center; margin-top: 20px;margin-bottom: 20px;">
+            <button type="submit" style="padding: 10px 20px; background-color: #1a1a1a; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+                Submit
+            </button>
+        </div>
+    </form>
+    
+        
+        
+
+        <section class="highlights-grid">
+            {% for item in news %}
+            <div class="news-card">
+                <div class="news-category">{{ item['metadata']['category'] }}</div>
+                <div class="tags">Tags: {{ item['metadata']['sub_category'] }}</div>
+                <h2 class="news-title">{{ item['document'] }}</h2>
+                <p class="summary">{{ item['metadata']['title'] }}</p>
+                <div class="news-meta">
+                    <div>By: {% if item['metadata']['author']|trim == '' %}Not Available{% else %}{{ item['metadata']['author'] }}{% endif %}</div>
+                    <div>Source: <a href="{{ item['metadata']['link'] }}" target="_blank" class="news-link">{{ item['metadata']['link'] }}</a></div>
+                    <div>Published: {{ item['metadata']['published_date'] }}</div>
+                </div>
+                <div class="news-frequency"> Frequency: {{ item.frequency }}</div>
             </div>
-        </form>
-
-
-    </main>
+            {% endfor %}
+        </section>
+        <div class="highlights-heading">
 </body>
 </html>
