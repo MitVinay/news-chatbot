@@ -95,8 +95,8 @@ The data is collected using three methods:
 - **RSS Feeds**:  
   `python news-chatbot/src/data/data_ingestion_rss_feed.py`
 
-**Output:**  
-Raw data files will be generated inside the `data/raw` directory.
+- **Output:**  
+   Raw data files will be generated inside the `data/raw` directory.
 
 #### Second Phase: Data Preprocessing
 
@@ -106,3 +106,6 @@ Run the following command:
 python news-chatbot/src/data/data_preprocessing.py
 
 ```
+
+- **Output:**  
+   Processed data files will be generated inside the `data/processed` directory.
