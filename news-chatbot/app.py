@@ -21,7 +21,6 @@ embedding_model = SentenceTransformer(EMBEDDING_MODEL)
 @app.route('/')
 def index():
     category = request.args.getlist('category')
-    print(category)
     all_data = []
     for cat, data in checker.category_documents.items():
         if cat in category:
@@ -33,7 +32,6 @@ def index():
     if category == 'all':
         all_data = [item for sublist in checker.category_documents.values()
                     for item in sublist]
-    print(all_data)
 
     return render_template('index.html',
                            news=all_data,
@@ -55,7 +53,6 @@ def chat_endpoint():
     if category == 'all':
         all_data = [item for sublist in checker.category_documents.values()
                     for item in sublist]
-    print(all_data)
     # Initialize
     load_dotenv()
     openai_api_key = os.getenv('OPENAI_API_KEY')

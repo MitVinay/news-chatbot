@@ -83,7 +83,25 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 ## Demo
 
 [Watch Demo Video](https://drive.google.com/file/d/1TZn3zVqs6xAfZnZ4S9scCtmJKepuLIqy/view?usp=sharing)
+
 ![alt text](image.png)
+
+## Tool Stack
+
+- **ChromaDB** - Vector database to store and query news embeddings efficiently.
+- **MLflow** - For experiment tracking, model versioning, and performance logging.
+- **DagsHub** - Manage data versioning and ML pipelines with Git-like workflows.
+- **Hugging Face Models** - Leverage state-of-the-art NLP models for news understanding.
+- **Flask Framework** - Serve the chatbot as a web API.
+
+## 🏃‍♂️ How to Run
+
+1. Clone the repository:
+
+```bash
+python news-chatbot/app.py
+
+```
 
 ## Approach
 
@@ -108,6 +126,7 @@ The data is collected using three methods:
 Run the following command:
 
 ```bash
+python install -r requirements.txt
 python news-chatbot/src/data/data_preprocessing.py
 
 ```
@@ -128,20 +147,3 @@ python news-chatbot/src/data/chrome_data_pipeline.py
 
 - **Output:**  
    news database will be generated inside the database folder.
-
-## Tool Stack
-
-- **ChromaDB** - Vector database to store and query news embeddings efficiently.
-- **MLflow** - For experiment tracking, model versioning, and performance logging.
-- **DagsHub** - Manage data versioning and ML pipelines with Git-like workflows.
-- **Hugging Face Models** - Leverage state-of-the-art NLP models for news understanding.
-- **Flask Framework** - Serve the chatbot as a web API.
-
-## 🏃‍♂️ How to Run
-
-1. Clone the repository:
-
-```bash
-python news-chatbot/app.py
-
-```
