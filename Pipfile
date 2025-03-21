@@ -21,6 +21,9 @@ textacy = "*"
 mlflow = "*"
 dagshub = "*"
 seaborn = "*"
+modal = "*"
+modal-client = "*"
+dvc = "*"
 
 [dev-packages]
 ipykernel = "*"

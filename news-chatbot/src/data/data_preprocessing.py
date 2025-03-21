@@ -52,6 +52,9 @@ class DataPreprocessingPipeline:
         self.combined_df['Category'] = self.combined_df['Category'].replace(
             {'local': 'national', 'australia': 'national'})
 
+        self.combined_df['Category'] = self.combined_df['Category'].replace(
+            {'sport': 'sports'})
+
     def check_https(self):
 
         self.combined_df['is_https'] = self.combined_df['Link'].apply(
