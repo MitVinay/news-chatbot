@@ -1,4 +1,4 @@
-# news-chatbot
+# News Digest Pro
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
@@ -36,9 +36,9 @@
 ├── static/images/    < Contains images for the website>
 │
 │
-└── templates   <- Contains the templates for the project
+├── templates   <- Contains the templates for the project
 │    │
-│    ├── index.html
+│    └── index.html
 │
 │
 │
@@ -84,7 +84,7 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 
 **Data Ingestion → Data Preprocessing → Data Storing**
 
-## Initial Phase: Data Ingestion
+#### Initial Phase: Data Ingestion
 
 The data is collected using three methods:
 
@@ -98,9 +98,7 @@ The data is collected using three methods:
 **Output:**  
 Raw data files will be generated inside the `data/raw` directory.
 
----
-
-## Second Phase: Data Preprocessing
+#### Second Phase: Data Preprocessing
 
 Run the following command:
 
