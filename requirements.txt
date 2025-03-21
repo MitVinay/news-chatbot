@@ -1,0 +1,7 @@
+chromadb
+numpy
+random
+Flask
+python-dotenv
+openai
+sentence-transformers
