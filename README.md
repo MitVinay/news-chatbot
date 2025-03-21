@@ -80,6 +80,10 @@ We believe in togetherness – a place where you can enjoy diverse news, find un
 
 Our aim is to provide you with a wide range of news, helping you develop an unbiased perspective on the world.
 
+## Demo
+
+[Watch Demo Video on Google Drive](https://drive.google.com/file/d/1TZn3zVqs6xAfZnZ4S9scCtmJKepuLIqy/view?usp=sharing)
+
 ## Approach
 
 **Data Ingestion → Data Preprocessing → Data Storing**
