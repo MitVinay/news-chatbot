@@ -68,11 +68,11 @@
 
 ---
 
-# Goal
+## Goal
 
 The goal of the project is to develop a AI-Powered News Aggregation & Chatbot, that extracts news articles from multiple Australian news outlets, categorizes and summarizes them, and then presents daily highlights in a user-friendly UI. Additionally, a chatbot should be implemented to allow users to ask questions about the highlights using Retrieval-Augmented Generation (RAG).
 
-# Vision
+## Vision
 
 You can have different opinions, likes, and dislikes, yet still share the same space.
 
@@ -80,7 +80,7 @@ We believe in togetherness – a place where you can enjoy diverse news, find un
 
 Our aim is to provide you with a wide range of news, helping you develop an unbiased perspective on the world.
 
-# Approach
+## Approach
 
 **Data Ingestion → Data Preprocessing → Data Storing**
 
@@ -109,3 +109,34 @@ python news-chatbot/src/data/data_preprocessing.py
 
 - **Output:**  
    Processed data files will be generated inside the `data/processed` directory.
+
+#### Third Phase: Data Storing
+
+The database chosen for this application is ChromaDB for vector-based data due to its ease of use, open-source nature, and the availability of a supportive community.
+
+Run the following command:
+
+```bash
+python news-chatbot/src/data/chrome_data_pipeline.py
+
+```
+
+- **Output:**  
+   news database will be generated inside the database folder.
+
+## Tool Stack
+
+- **ChromaDB** - Vector database to store and query news embeddings efficiently.
+- **MLflow** - For experiment tracking, model versioning, and performance logging.
+- **DagsHub** - Manage data versioning and ML pipelines with Git-like workflows.
+- **Hugging Face Models** - Leverage state-of-the-art NLP models for news understanding.
+- **Flask Framework** - Serve the chatbot as a web API.
+
+## 🏃‍♂️ How to Run
+
+1. Clone the repository:
+
+```bash
+python news-chatbot/app.py
+
+```
