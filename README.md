@@ -4,8 +4,6 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-I-powered system that extracts news articles from multiple Australian news outlets, categorizes and summarizes them, and then presents daily highlights in a user-friendly UI. Additionally, a chatbot should be implemented to allow users to ask questions about the highlights using Retrieval-Augmented Generation (RAG).
-
 ## Project Organization
 
 ```
@@ -40,7 +38,7 @@ I-powered system that extracts news articles from multiple Australian news outle
 │
 └── templates   <- Contains the templates for the project
 │    │
-│   ├── index.html
+│    ├── index.html
 │
 │
 │
@@ -51,7 +49,7 @@ I-powered system that extracts news articles from multiple Australian news outle
 │                         generated with `pipenv requirements > news-chatbot/requirements.txt`
 │
 │
-└── app.py  < Flask application>
+├── app.py  < Flask application>
 │
 │
 └── src   <- Source code for use in this project.
@@ -60,14 +58,53 @@ I-powered system that extracts news articles from multiple Australian news outle
     │
     ├── highlights.py               <- Code to generate the highlights of the news
     │
-    ├── data
-    │   ├── data_ingestion_api.py          <- Code to extract data through APIs
-    │   └── data_ingestion_rss_feed.py      <- Code to extract data through rss_fee
-    │   └── data_ingestion_scraping.py      <- Code to extract data through scraping
-    │   └── data_preprocessing.py           <- Perform the data cleaning and preprocessing
-    │   └── chroma_data_pipeline.py            <- Code to store data in chroma db
-    │
-    └── plots.py                <- Code to create visualizations
+    └── data
+       ├── data_ingestion_api.py          <- Code to extract data through APIs
+       ├── data_ingestion_rss_feed.py      <- Code to extract data through rss_fee
+       ├── data_ingestion_scraping.py      <- Code to extract data through scraping
+       ├── data_preprocessing.py           <- Perform the data cleaning and preprocessing
+       └── chroma_data_pipeline.py            <- Code to store data in chroma db
 ```
 
 ---
+
+# Goal
+
+The goal of the project is to develop a AI-Powered News Aggregation & Chatbot, that extracts news articles from multiple Australian news outlets, categorizes and summarizes them, and then presents daily highlights in a user-friendly UI. Additionally, a chatbot should be implemented to allow users to ask questions about the highlights using Retrieval-Augmented Generation (RAG).
+
+# Vision
+
+You can have different opinions, likes, and dislikes, yet still share the same space.
+
+We believe in togetherness – a place where you can enjoy diverse news, find unbiased variety, and stay updated and connected, all while maintaining your individuality.
+
+Our aim is to provide you with a wide range of news, helping you develop an unbiased perspective on the world.
+
+# Approach
+
+**Data Ingestion → Data Preprocessing → Data Storing**
+
+## Initial Phase: Data Ingestion
+
+The data is collected using three methods:
+
+- **Scraping**:  
+  `python news-chatbot/src/data/data_ingestion_scraping.py`
+- **API Calls**:  
+  `python news-chatbot/src/data/data_ingestion_api.py`
+- **RSS Feeds**:  
+  `python news-chatbot/src/data/data_ingestion_rss_feed.py`
+
+**Output:**  
+Raw data files will be generated inside the `data/raw` directory.
+
+---
+
+## Second Phase: Data Preprocessing
+
+Run the following command:
+
+```bash
+python news-chatbot/src/data/data_preprocessing.py
+
+```
