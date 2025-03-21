@@ -24,6 +24,7 @@ seaborn = "*"
 modal = "*"
 modal-client = "*"
 dvc = "*"
+gunicorn = "*"
 
 [dev-packages]
 ipykernel = "*"

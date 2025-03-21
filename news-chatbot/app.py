@@ -4,7 +4,6 @@ import chromadb
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-import gradio as gr
 from sentence_transformers import SentenceTransformer
 import chromadb
 
