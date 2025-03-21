@@ -91,7 +91,7 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 - **ChromaDB** - Vector database to store and query news embeddings efficiently.
 - **MLflow** - For experiment tracking, model versioning, and performance logging.
 - **DagsHub** - Manage data versioning and ML pipelines with Git-like workflows.
-- **Hugging Face Models** - Leverage state-of-the-art NLP models for news understanding.
+- **Hugging Face Models** - Leverage Embeddigng models.
 - **Flask Framework** - Serve the chatbot as a web API.
 
 ## 🏃‍♂️ How to Run
@@ -99,6 +99,21 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 1. Clone the repository:
 
 ```bash
+git clone <link?
+
+```
+
+2. Install the packages:
+
+```bash
+python install -r requirements.txt
+
+```
+
+3. Run the application:
+
+```bash
+
 python news-chatbot/app.py
 
 ```
@@ -126,7 +141,7 @@ The data is collected using three methods:
 Run the following command:
 
 ```bash
-python install -r requirements.txt
+
 python news-chatbot/src/data/data_preprocessing.py
 
 ```
