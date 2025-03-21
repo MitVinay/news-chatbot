@@ -13,46 +13,59 @@ I-powered system that extracts news articles from multiple Australian news outle
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
-│   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
 │
 ├── models             <- Trained and serialized models, model predictions, or model summaries
 │
 ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+│   │                  the creator's initials, and a short `-` delimited description, e.g.
+│   │                      `1.0-jqp-initial-data-exploration`.
+│   │
+│   ├── data_exploration_preprocessing.ipynb <- Code to explore the data>
+│   ├── data_storing_sample_code.ipynb          <- Sample code to store the data>
+│   ├── model_breaking_news_clasifier.ipynb     <- Code to build a classfier>
+│   └── similar_news.ipynb                      <- Find the similar news>
 │
-├── pyproject.toml     <- Project configuration file with package metadata for
-│                         news_chatbot and configuration for tools like black
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
 │
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+│
+├── database < Contain chromadb vectore database>
+│
+│
+├── static/images/    < Contains images for the website>
+│
+│
+└── templates   <- Contains the templates for the project
+│    │
+│   ├── index.html
+│
+│
+│
+├── reports            <- Detailed Report of the thought process and application planning
+│
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+│                         generated with `pipenv requirements > news-chatbot/requirements.txt`
 │
-├── setup.cfg          <- Configuration file for flake8
 │
-└── news_chatbot   <- Source code for use in this project.
+└── app.py  < Flask application>
+│
+│
+└── src   <- Source code for use in this project.
     │
     ├── __init__.py             <- Makes news_chatbot a Python module
     │
-    ├── config.py               <- Store useful variables and configuration
+    ├── highlights.py               <- Code to generate the highlights of the news
     │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling
-    │   ├── __init__.py
-    │   ├── predict.py          <- Code to run model inference with trained models
-    │   └── train.py            <- Code to train models
+    ├── data
+    │   ├── data_ingestion_api.py          <- Code to extract data through APIs
+    │   └── data_ingestion_rss_feed.py      <- Code to extract data through rss_fee
+    │   └── data_ingestion_scraping.py      <- Code to extract data through scraping
+    │   └── data_preprocessing.py           <- Perform the data cleaning and preprocessing
+    │   └── chroma_data_pipeline.py            <- Code to store data in chroma db
     │
     └── plots.py                <- Code to create visualizations
 ```
