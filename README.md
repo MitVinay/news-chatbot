@@ -82,7 +82,8 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 
 ## Demo
 
-[Watch Demo Video on Google Drive](https://drive.google.com/file/d/1TZn3zVqs6xAfZnZ4S9scCtmJKepuLIqy/view?usp=sharing)
+[Watch Demo Video](https://drive.google.com/file/d/1TZn3zVqs6xAfZnZ4S9scCtmJKepuLIqy/view?usp=sharing)
+![Preview](https://drive.google.com/drive/u/0/folders/1vEY1Cv8abPO5ztMClR5OC5cba6y4oTPC)
 
 ## Approach
 
