@@ -48,7 +48,7 @@ class NewsFetcher:
 
         # Create a DataFrame from the rows list
         df = pd.DataFrame(rows, columns=[
-                          "Category", "Link", "Title", "Description", "Sub_category", "Author", "Published Date"])
+                          "Category", "Link", "Title", "Description", "Sub_category", "Author", "Published_Date"])
 
         # Write the DataFrame to a CSV file
         df.to_csv(filename, index=False)
