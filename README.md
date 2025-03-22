@@ -99,7 +99,7 @@ Our aim is to provide you with a wide range of news, helping you develop an unbi
 1. Clone the repository:
 
 ```bash
-git clone <link?
+git clone <link>
 
 ```
 
@@ -118,11 +118,13 @@ python news-chatbot/app.py
 
 ```
 
-## Approach
+## High Level Overview
 
-**Data Ingestion → Data Preprocessing → Data Storing**
+**Data Ingestion ---→ Data Preprocessing ---→ Data Storing ---→ Highlights**
 
-#### Initial Phase: Data Ingestion
+**News Assistant**
+
+### Data Ingestion
 
 The data is collected using three methods:
 
